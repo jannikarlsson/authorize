@@ -12,7 +12,7 @@ import { ConfigModule } from '@nestjs/config';
     TypeOrmModule.forFeature([Users]),
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: `mongodb+srv://jannikarlsson:${process.env.MONGO_PW}@authorize.c6sw69u.mongodb.net/`,
+      url: `mongodb+srv://${process.env.MONGO_USR}:${process.env.MONGO_PW}@authorize.c6sw69u.mongodb.net/`,
       database: 'authorize',
       entities: [Users],
       synchronize: true,

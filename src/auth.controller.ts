@@ -23,7 +23,8 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @Get('/')
   async findAll() {
-    return await this.authService.get();
+    const users = await this.authService.get();
+    return users.map(({ password, ...user }) => user);
   }
 
   @HttpCode(HttpStatus.OK)
