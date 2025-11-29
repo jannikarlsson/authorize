@@ -12,10 +12,11 @@ import { ConfigModule } from '@nestjs/config';
     TypeOrmModule.forFeature([Users]),
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: `mongodb+srv://${process.env.MONGO_USR}:${process.env.MONGO_PW}@authorize.c6sw69u.mongodb.net/`,
+      url: `mongodb+srv://${process.env.MONGO_USR}:${process.env.MONGO_PW}@authorize.c6sw69u.mongodb.net/?retryWrites=true&w=majority&tls=true&tlsAllowInvalidCertificates=true`,
       database: 'authorize',
       entities: [Users],
       synchronize: true,
+      useUnifiedTopology: true,
     }),
     JwtModule.register({
       global: true,
